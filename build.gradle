@@ -14,23 +14,6 @@ buildscript {
     }
 }
 
-plugins {
-    id 'java'
-    id 'maven-publish'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            
-        }
-    }
-
-    repositories {
-        mavenLocal() // 发布到本地Maven仓库（~/.m2/repository）
-    }
-}
-
 allprojects {
     repositories {
         mavenLocal()
@@ -41,4 +24,8 @@ allprojects {
     tasks.withType(Javadoc) {
         enabled = false
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
